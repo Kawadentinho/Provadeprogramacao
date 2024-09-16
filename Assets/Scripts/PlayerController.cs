@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviourPun
     SpriteRenderer spriteRenderer;
     PhotonView photonView;
     [SerializeField] GameObject player;
+    GameManager gameManager;
 
 
 
@@ -66,14 +67,14 @@ public class PlayerController : MonoBehaviourPun
         // Aplica a posição restrita ao jogador.
     }
 
+    [PunRPC]
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (playerLocal)
         {
             if (collision.gameObject.CompareTag("MaçãVermelha"))
             {
-
-
+                gameManager.Score += 10;
 
                 // Obtém o valor de pontuação da maçã.
 
@@ -85,11 +86,11 @@ public class PlayerController : MonoBehaviourPun
             }
             if (collision.gameObject.CompareTag("MaçãVerde"))
             {
-
+                gameManager.Score += 50;
             }
             if (collision.gameObject.CompareTag("MaçãDourada"))
             {
-
+                gameManager.Score += 100;
             }
 
 

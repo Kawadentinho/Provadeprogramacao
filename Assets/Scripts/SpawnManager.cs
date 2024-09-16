@@ -9,7 +9,8 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject[] applePrefabs;
     float timer;
     const int cooldown = 1;
-    
+    Vector2 screenBounds, spriteBounds;
+
     void Update()
     {
       

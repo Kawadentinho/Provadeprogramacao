@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEditor.PackageManager;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -12,6 +13,12 @@ public class SpawnManager : MonoBehaviour
     
     void Update()
     {
-        if (
+      
     }
+
+    public void spawn()
+    {
+        timer -- Time.deltaTime;
+    }
+
 }

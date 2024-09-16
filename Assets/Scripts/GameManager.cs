@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviourPun
         score = 0;
         scoreText.text = score.ToString();
     }
+    [PunRPC]
     void AddPlayer()
     {
         playersInGame++;
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviourPun
         }
 
     }
-
+    [PunRPC]
     void AddScore()
     {
         score++;

@@ -14,5 +14,16 @@ public class Apple : MonoBehaviourPun
     {
 
     }*/
+    private void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    public void appleStatus()
+    {
+        rb.velocity = Vector2.down * speed;
+
+
+    }
 
 }

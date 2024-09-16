@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bullet
+  - "Ma\xE7\xE3Vermelha"
+  - "Ma\xE7\xE3Verde"
+  - "Ma\xE7\xE3Dourada"
   layers:
   - Default
   - TransparentFX

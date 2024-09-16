@@ -9,6 +9,9 @@ public class Apple : MonoBehaviourPun
     const int speed = 5;
     [SerializeField] int score;
     Rigidbody2D rb;
+    [SerializeField] string prefabPath;
+
+    public string PrefabPath { get => prefabPath; }
 
     /*public int aplleScore()
     {

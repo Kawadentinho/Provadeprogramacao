@@ -14,7 +14,7 @@ public class SpawnManager : MonoBehaviour
     {
       
     }
-
+    /*
     Vector2 GeneratePosition(GameObject objectSelected)
     {
         Vector2 spriteBounds = objectSelected.GetComponent<SpriteRenderer>().bounds.size / 2;
@@ -25,7 +25,7 @@ public class SpawnManager : MonoBehaviour
         Debug.Log(bounds);
         return new Vector2(Random.Range(-bounds.x, bounds.x), bounds.y);
     }
-
+    */
     GameObject ChoosenApple()
     {
         int appleSelected = Random.Range(0, applePrefabs.Length);
@@ -41,7 +41,7 @@ public class SpawnManager : MonoBehaviour
         {
             GameObject appleSelected = ChoosenApple();
             timer = cooldown;
-            NetworkManager.instance.Instantiate(appleSelected.GetComponent<Apple>.PrefabPath, GeneratePosition(appleSelected), Quaternion.identity);
+       //     NetworkManager.instance.Instantiate(appleSelected.GetComponent<Apple>.PrefabPath, GeneratePosition(appleSelected), Quaternion.identity);
         }
     }
 

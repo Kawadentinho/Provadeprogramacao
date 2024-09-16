@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using UnityEditor.PackageManager;
-using System;
 
 public class SpawnManager : MonoBehaviour
 {
 
-    Array stringApples;
+    [SerializeField] GameObject[] applePrefabs;
     float timer;
     const int cooldown = 1;
     
@@ -17,25 +15,22 @@ public class SpawnManager : MonoBehaviour
       
     }
 
+    GameObject ChoosenApple()
+    {
+        int appleSelected = Random.Range(0, applePrefabs.Length);
+
+        return applePrefabs[appleSelected];
+    }
+
     public void spawn()
     {
         timer -= Time.deltaTime;
 
         if (timer <= 0)
         {
-            float appleindex;
-            appleindex = Random.Range(0, 1);
-            string appleSelected;
-
-            switch (appleindex)
-            {
-                case <= 0.5f:
-                    appleSelected = appleList(0);
-                    break;
-
-                    
-            }
-
+            GameObject appleSelected = ChoosenApple();
+            timer = cooldown;
+           
         }
     }
 

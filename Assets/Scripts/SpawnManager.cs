@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEditor.PackageManager;
+using System;
 
 public class SpawnManager : MonoBehaviour
 {
 
-    public float[] apples;
+    Array stringApples;
     float timer;
     const int cooldown = 1;
     
@@ -22,14 +23,17 @@ public class SpawnManager : MonoBehaviour
 
         if (timer <= 0)
         {
-            int appleindex;
+            float appleindex;
             appleindex = Random.Range(0, 1);
             string appleSelected;
 
             switch (appleindex)
             {
-                case 0:
-                    appleList = 1;
+                case <= 0.5f:
+                    appleSelected = appleList(0);
+                    break;
+
+                    
             }
 
         }

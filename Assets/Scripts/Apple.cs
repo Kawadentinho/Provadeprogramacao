@@ -24,9 +24,15 @@ public class Apple : MonoBehaviourPun
         rb.velocity = Vector2.down * speed;
 
        /* if (rb.position.y < "limiteDaTela"
-        
+        destroy();
        
         */
+    }
+
+    [PunRPC]
+    public void destroy()
+    {
+        Destroy(gameObject);
     }
 
 }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 167140971265435469}
   m_Layer: 0
   m_Name: Golden Apple
-  m_TagString: Untagged
+  m_TagString: "Ma\xE7\xE3Dourada"
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviourPun
     [PunRPC]
     private void Initialize()
     {
-        
+
         if (photonView.IsMine)
         {
             playerLocal = true;
@@ -57,9 +57,9 @@ public class PlayerController : MonoBehaviourPun
     }
     void Move()
     {
-        
-       direction.x = Input.GetAxis("Horizontal");
-       rigidbody2D.velocity = direction * speed;
+
+        direction.x = Input.GetAxis("Horizontal");
+        rigidbody2D.velocity = direction * speed;
         // Obtém a posição atual do jogador.
         // Restringe a posição do jogador dentro dos limites da tela (screenBounds), evitando que ele saia da tela.
 
@@ -69,11 +69,11 @@ public class PlayerController : MonoBehaviourPun
     {
         if (playerLocal)
         {
-            switch(collision.gameObject.CompareTag("MaçãVermelha"))
+            if (collision.gameObject.CompareTag("MaçãVermelha"))
             {
-            
 
-           
+
+
                 // Obtém o valor de pontuação da maçã.
 
 
@@ -82,15 +82,16 @@ public class PlayerController : MonoBehaviourPun
 
                 // Envia um RPC para todos os clientes para destruir a maçã após a colisão.
             }
-            switch(collision.gameObject.CompareTag("MaçãVerde"))
+            if (collision.gameObject.CompareTag("MaçãVerde"))
             {
 
             }
-            switch (collision.gameObject.CompareTag("MaçãDourada"))
+            if (collision.gameObject.CompareTag("MaçãDourada"))
             {
 
             }
+
+
         }
     }
-
 }

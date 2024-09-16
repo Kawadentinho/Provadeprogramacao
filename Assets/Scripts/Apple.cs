@@ -13,10 +13,11 @@ public class Apple : MonoBehaviourPun
 
     public string PrefabPath { get => prefabPath; }
 
-    /*public int aplleScore()
+    public void AppleScore()
     {
 
-    }*/
+    }
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();

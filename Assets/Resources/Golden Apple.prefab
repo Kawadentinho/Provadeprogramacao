@@ -148,5 +148,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0218a63afaf3f3c4e9f40a317a23f583, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: 0
+  score: 100
   prefabPath: Resources/Golden Apple

@@ -9,12 +9,18 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] GameObject[] applePrefabs;
     float timer;
     const int cooldown = 1;
-    
+    Vector2 screenBounds;
+
+
+    private void Start()
+    {
+        screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
+    }
     void Update()
     {
       
     }
-    /*
+    
     Vector2 GeneratePosition(GameObject objectSelected)
     {
         Vector2 spriteBounds = objectSelected.GetComponent<SpriteRenderer>().bounds.size / 2;
@@ -25,7 +31,7 @@ public class SpawnManager : MonoBehaviour
         Debug.Log(bounds);
         return new Vector2(Random.Range(-bounds.x, bounds.x), bounds.y);
     }
-    */
+    
     GameObject ChoosenApple()
     {
         int appleSelected = Random.Range(0, applePrefabs.Length);
@@ -41,7 +47,8 @@ public class SpawnManager : MonoBehaviour
         {
             GameObject appleSelected = ChoosenApple();
             timer = cooldown;
-       //     NetworkManager.instance.Instantiate(appleSelected.GetComponent<Apple>.PrefabPath, GeneratePosition(appleSelected), Quaternion.identity);
+
+            NetworkManager.instance.Instantiate(appleSelected.GetComponent<Apple>.PrefabPath, GeneratePosition(appleSelected), Quaternion.identity);
         }
     }
 

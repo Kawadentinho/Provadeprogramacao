@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using UnityEngine.UI;
+
+
+
 
 public class GameManager : MonoBehaviourPun
 {
 
     Vector2 screenBounds;
-    float Score;
+    float score;
+    public Text scoreText;
     int playersInGame;
-    public Vector2 ScreeenBounds1 { get => screenBounds; }
+    public static GameManager Instance;
+
+    public Vector2 ScreenBounds { get => screenBounds; }
 
 
     #region Singleton
@@ -30,23 +35,33 @@ public class GameManager : MonoBehaviourPun
             Destroy(gameObject);
         }
         screenBounds = Camera.main.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        photonView.RPC("AddPlayer", RpcTarget.AllBuffered);
     }
     #endregion
     private void Start()
     {
-        Score = 0;
-
+        score = 0;
+        scoreText.text = score.ToString();
     }
     void AddPlayer()
     {
         playersInGame++;
+        if (playersInGame == PhotonNetwork.PlayerList.Length)
+        {
+            CreatePlayer();
+        }
 
     }
 
     void AddScore()
     {
-        Score++;
+        score++;
+        scoreText.text = "Score: " + score.ToString();
     }
 
+    void CreatePlayer()
+    {
+        PhotonNetwork.Instantiate("PlayerPrefab", new Vector3(0, -4, 0), Quaternion.identity);
+    }
 
-}
+}   

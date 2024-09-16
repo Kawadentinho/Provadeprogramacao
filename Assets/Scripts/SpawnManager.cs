@@ -48,7 +48,7 @@ public class SpawnManager : MonoBehaviour
             GameObject appleSelected = ChoosenApple();
             timer = cooldown;
 
-            NetworkManager.instance.Instantiate(appleSelected.GetComponent<Apple>.PrefabPath, GeneratePosition(appleSelected), Quaternion.identity);
+            NetworkManager.instance.Instantiate("Assets/Resources", GeneratePosition(appleSelected), Quaternion.identity);
         }
     }
 

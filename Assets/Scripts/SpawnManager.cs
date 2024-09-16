@@ -7,8 +7,8 @@ using UnityEditor.PackageManager;
 public class SpawnManager : MonoBehaviour
 {
 
-    ArrayList appleList;
-    int timer;
+    public float[] apples;
+    float timer;
     const int cooldown = 1;
     
     void Update()
@@ -18,7 +18,21 @@ public class SpawnManager : MonoBehaviour
 
     public void spawn()
     {
-        timer -- Time.deltaTime;
+        timer -= Time.deltaTime;
+
+        if (timer <= 0)
+        {
+            int appleindex;
+            appleindex = Random.Range(0, 1);
+            string appleSelected;
+
+            switch (appleindex)
+            {
+                case 0:
+                    appleList = 1;
+            }
+
+        }
     }
 
 }

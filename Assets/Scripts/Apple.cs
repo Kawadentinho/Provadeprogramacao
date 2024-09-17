@@ -12,6 +12,7 @@ public class Apple : MonoBehaviourPun
     [SerializeField] string prefabPath;
 
     public string PrefabPath { get => prefabPath; }
+    public int Score { get => score; set => score = value; }
 
     public void AppleScore()
     {

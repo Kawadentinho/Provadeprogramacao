@@ -43,6 +43,9 @@ public class GameManager : MonoBehaviourPun
         score = 0;
         scoreText.text = score.ToString();
     }
+
+
+    [PunRPC]
     void AddPlayer()
     {
         playersInGame++;
@@ -53,15 +56,19 @@ public class GameManager : MonoBehaviourPun
 
     }
 
-    void AddScore()
+
+    [PunRPC]
+    void AddScore(int value)
     {
-        score++;
+        score += value;
         scoreText.text = "Score: " + score.ToString();
     }
 
+
+    [PunRPC]
     void CreatePlayer()
     {
-        PhotonNetwork.Instantiate("PlayerPrefab", new Vector3(0, -4, 0), Quaternion.identity);
+        NetworkManager.instance.Instantiate("Resources/Player", new Vector2(0, -4), Quaternion.identity);
     }
 
 }   
